@@ -29,7 +29,23 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'schol',
+    'rest_framework.authtoken'
 ]
+
+REST_FRAMEWORK = [
+    'DEFAUT_AUTHENTICATION_CLASSES' :[
+        'rest_framework.authentication.Token, Authentication'
+    ],
+    
+
+
+],
+
+
+
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -15,14 +15,25 @@ class CourseSerializer(serializers.ModelSerializer):
 
 
 class EnrollmetnSerializer(serializers.ModelSerializer):
- 
- student = StudentSerializer(read_only=True)
- course = CourseSerializer(read_only=True)
- student_id = serializers.PrimaryKeyRelatedField(queryset=Course.objects.all(), source='cours', write_only=True)
+    student = StudentSerializer(read_only=True)
+    course = CourseSerializer(read_only=True)
+    student_id = serializers.PrimaryKeyRelatedField(
+        queryset=Student.objects.all(),
+        source='student',
+        write_only=True
+    )
+    course_id = serializers.PrimaryKeyRelatedField(
+        queryset=Course.objects.all(),
+        source='course',
+        write_only=True
+    )
+
+    class Meta:
+        model = Enrollment
+        fields = ['id', 'student', 'course', 'date_enrolled', 'student_id', 'course_id']
 
 
-class Meta :
-  model = Enrollment
-  fields = ['id', 'student', 'course', 'date_enrolled', 'student_id' 'course_id']
-  
+
+
+
  

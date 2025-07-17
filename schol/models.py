@@ -16,7 +16,7 @@ class Course(models.Model):
         return self.title
     
 class Enrollment(models.Model):
-    studant = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='enrollement')
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='enrollement')
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='enrollment')
     date_enrolled = models.DateField(auto_now_add=True)
 
